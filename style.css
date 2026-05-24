@@ -1,0 +1,745 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background-color: #ff9047;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+
+
+nav {
+    background-color: #ffa264;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    background-color: white;
+    color: #3a5a8c;
+    border-radius: 10px;
+}
+
+main {
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #2c3e50;
+    margin: 20px 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+ul li {
+    margin-bottom: 8px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* ---=== ГАЛЕРЕЯ ===--- */
+
+/* Основной контейнер для Grid */
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Шапка галереи */
+.gallery-header {
+    background: linear-gradient(135deg, #ffcaa6 0%, #ff8f45 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 30px;
+}
+
+
+.header-content {
+    margin-bottom: 30px;
+}
+
+
+.theme-name {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+/* Навигация с использованием Grid */
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 600px) {
+    .nav-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.nav-link {
+    display: block;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+
+/* Панель управления */
+.controls-panel {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .controls-panel {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+
+.stat-item {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.view-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+
+.view-btn {
+    background: white;
+    border: 2px solid #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+
+.view-btn.active {
+    background: #ffa264;
+    color: white;
+    border-color: #ffa264;
+}
+
+
+
+
+
+
+
+
+/* ОСНОВНАЯ ГАЛЕРЕЯ С CSS GRID */
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+
+/* Альтернативный вид - список */
+.gallery-grid.list-view {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+
+/* Карточка изображения */
+.image-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    flex: 1 1 300px;
+    flex-direction: column;
+}
+
+
+.image-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+
+/* Изображение в карточке */
+.card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+
+.image-card:hover .gallery-img {
+    transform: scale(1.05);
+}
+
+
+/* Наложение с кнопками */
+.image-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+.image-card:hover .image-overlay {
+    opacity: 1;
+}
+
+
+.like-btn, .zoom-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+.like-btn:hover {
+    background: #ff7c6b;
+    color: white;
+}
+
+
+.like-btn.liked {
+    background: #ff756b;
+    color: white;
+}
+
+
+.like-btn.liked i {
+    font-weight: 900;
+}
+
+
+.zoom-btn:hover {
+    background: #4a6fa5;
+    color: white;
+}
+
+
+.like-count {
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    gap: 30px;
+}
+.filter-btn {
+    color: #fff;
+    background-color: #ffa970;
+
+    border: none;
+    border-radius: 10px;
+
+    width: 100px;
+    height: 30px;
+}
+.filter-btn:hover {
+    background-color: #e99258;
+}
+
+/* Контент карточки */
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.image-title {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+
+.image-date {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+
+.image-description {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+
+/* Теги */
+.image-tags {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, auto));
+    gap: 5px;
+}
+
+
+.tag {
+    background: #f0f0f0;
+    color: #666;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* Блок с информацией */
+.gallery-info {
+    background: linear-gradient(135deg, #ffad94 0%, #ff6f36 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/* Подвал */
+.gallery-footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+}
+
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+
+.js-status {
+    color: #28a745;
+    font-weight: bold;
+}
+
+
+/* Утилитарные классы */
+.hidden {
+    display: none !important;
+}
+
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.image-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+
+/* Задержка анимации для каждой карточки */
+.image-card:nth-child(1) { animation-delay: 0.1s; }
+.image-card:nth-child(2) { animation-delay: 0.2s; }
+.image-card:nth-child(3) { animation-delay: 0.3s; }
+.image-card:nth-child(4) { animation-delay: 0.4s; }
+.image-card:nth-child(5) { animation-delay: 0.5s; }
+.image-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* =========================================
+   СТРАНИЦА КОНТАКТОВ (contacts.html)
+   ========================================= */
+
+/* 2.1 Использование блочной модели */
+.contacts-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box; /* Обязательное требование */
+}
+
+.info-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.form-section {
+    flex: 2;
+    padding: 20px;
+}
+
+/* Применение box-shadow, border-radius и overflow */
+.info-card, .extra-info-card, .form-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px; /* Скругление углов */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05); /* Создание объема */
+    box-sizing: border-box;
+    overflow: hidden; /* Контроль переполнения */
+    border: 1px solid #eaeaea;
+}
+
+/* 2.3 Псевдоэлементы: ::selection */
+::selection {
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+/* 2.3 Псевдоэлементы: Добавление иконок через ::before */
+.card-title::before {
+    content: "\f2bd"; /* Иконка пользователя FontAwesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 10px;
+    color: #4a90e2;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* 2.2 Псевдоклассы: :hover и :nth-child() */
+.social-btn {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 6px;
+    background: #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background: #4a90e2;
+    color: white;
+    transform: translateX(5px);
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* Чередование стилей через :nth-child() */
+.faq-item:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+.faq-item:nth-child(even) {
+    background-color: #f1f5fa;
+}
+
+/* --- Стилизация Формы --- */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* 2.3 Псевдоэлементы: Маркировка обязательных полей через ::after */
+.required-label::after {
+    content: " *";
+    color: #e74c3c;
+    font-size: 1.1em;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* 2.3 Псевдоэлементы: Стилизация ::placeholder */
+.form-group input::placeholder, 
+.form-group textarea::placeholder {
+    color: #a0a0a0;
+    font-style: italic;
+}
+
+/* 2.2 Псевдоклассы: :focus */
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+/* 2.2 Псевдоклассы: Оформление :required полей */
+.form-group input:required:invalid,
+.form-group textarea:required:invalid {
+    border-left: 4px solid #e74c3c;
+}
+
+.form-group input:required:valid,
+.form-group textarea:required:valid {
+    border-left: 4px solid #2ecc71;
+}
+
+/* Чекбокс */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.checkbox-label {
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #555;
+    transition: color 0.3s;
+}
+
+/* 2.2 Псевдоклассы: Работа с :checked состоянием */
+input[type="checkbox"]:checked + .checkbox-label {
+    color: #4a90e2;
+    font-weight: bold;
+}
+
+/* Кнопка отправки */
+.submit-btn {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.1s;
+    box-sizing: border-box;
+}
+
+.submit-btn:hover {
+    background: #357abd;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* 2.5 Адаптивный дизайн (Мобильная версия через медиа-запросы) */
+@media screen and (max-width: 768px) {
+    .contacts-container {
+        flex-direction: column; /* Элементы выстраиваются друг под другом на смартфонах */
+        margin: 20px auto;
+    }
+    
+    .info-card, .extra-info-card, .form-card {
+        padding: 15px;
+    }
+}
+
+/* Обеспечение корректного отображения на экранах от 320px */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea, 
+    .submit-btn {
+        font-size: 16px; /* Предотвращает авто-зум на iOS */
+    }
+}
+
+/* =========================================
+   ЭТАП 3: ШАПКА САЙТА (Flexbox)
+   ========================================= */
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.flex-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;    /* Центрируем меню */
+    gap: 30px;                  /* Отступы между пунктами */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: fit-content;
+}
+
+.flex-nav a {
+    display: block;
+    padding: 12px 24px;
+    background-color: #ffb07b;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.flex-nav a:hover {
+    background-color: #ffbe92;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(74, 111, 165, 0.4);
+}
